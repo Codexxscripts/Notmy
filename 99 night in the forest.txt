@@ -519,101 +519,38 @@ local Tabs = {}
 Tabs.Combat = Window:Tab({
     Title = "Combat",
     Icon = "sword",
-    Desc = "Stellar"
+    Desc = ""
 })
 
 Tabs.esp = Window:Tab({
     Title = "Esp",
     Icon = "sparkles",
-    Desc = "Stellar"
+    Desc = ""
 })
 Tabs.br = Window:Tab({
     Title = "Bring",
     Icon = "package",
-    Desc = "Stellar"
+    Desc = ""
 })
 Tabs.Tp = Window:Tab({
     Title = "Teleport",
     Icon = "map",
-    Desc = "Stellar"
+    Desc = ""
 })
 Tabs.Fly = Window:Tab({
     Title = "Player",
     Icon = "user",
-    Desc = "Stellar"
+    Desc = ""
 })
 
-Tabs.Chest = Window:Tab({
-    Title = "Auto Chest",
+Tabs.info = Window:Tab({
+    Title = "Information",
     Icon = "layout-grid",
-    Desc = "Stellar"
+    Desc = ""
 })
 
 Window:SelectTab(1)
-Tabs.Chest:Toggle({
-    Title = "Auto open",
-    Value = false,
-    Callback = function(v)
-local Players = game:GetService("Players")
-        local player = Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-        if not _G.AutoChestData then
-            _G.AutoChestData = {running = false, originalCFrame = nil}
-        end
 
-        local function getChests()
-            local chests = {}
-            for _, obj in ipairs(workspace:GetDescendants()) do
-                if obj:IsA("Model") and string.find(obj.Name, "Item Chest") then
-                    table.insert(chests, obj)
-                end
-            end
-            return chests
-        end
-
-        local function getPrompt(model)
-            local prompts = {}
-            for _, obj in ipairs(model:GetDescendants()) do
-                if obj:IsA("ProximityPrompt") then
-                    table.insert(prompts, obj)
-                end
-            end
-            return prompts
-        end
-
-        if v then
-            if _G.AutoChestData.running then return end
-            _G.AutoChestData.running = true
-            _G.AutoChestData.originalCFrame = humanoidRootPart.CFrame
-            task.spawn(function()
-                while _G.AutoChestData.running do
-                    local chests = getChests()
-                    for _, chest in ipairs(chests) do
-                        if not _G.AutoChestData.running then break end
-                        local part = chest.PrimaryPart or chest:FindFirstChildWhichIsA("BasePart")
-                        if part then
-                            humanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 6, 0)
-                            local prompts = getPrompt(chest)
-                            for _, prompt in ipairs(prompts) do
-                                fireproximityprompt(prompt, math.huge)
-                            end
-                            local t = tick()
-                            while _G.AutoChestData.running and tick() - t < 4 do task.wait() end
-                        end
-                    end
-                    task.wait(0.1)
-                end
-            end)
-        else
-            _G.AutoChestData.running = false
-            if _G.AutoChestData.originalCFrame then
-                humanoidRootPart.CFrame = _G.AutoChestData.originalCFrame
-            end
-        end
-    end
-})
-local chestRange = 50
 
 
 Tabs.Combat:Section({ Title = "Aura", Icon = "star" })
@@ -780,6 +717,71 @@ Tabs.Tp:Button({
         end
     end
 })
+Tabs.Tp:Toggle({
+    Title = "Auto open",
+    Value = false,
+    Callback = function(v)
+local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+        if not _G.AutoChestData then
+            _G.AutoChestData = {running = false, originalCFrame = nil}
+        end
+
+        local function getChests()
+            local chests = {}
+            for _, obj in ipairs(workspace:GetDescendants()) do
+                if obj:IsA("Model") and string.find(obj.Name, "Item Chest") then
+                    table.insert(chests, obj)
+                end
+            end
+            return chests
+        end
+
+        local function getPrompt(model)
+            local prompts = {}
+            for _, obj in ipairs(model:GetDescendants()) do
+                if obj:IsA("ProximityPrompt") then
+                    table.insert(prompts, obj)
+                end
+            end
+            return prompts
+        end
+
+        if v then
+            if _G.AutoChestData.running then return end
+            _G.AutoChestData.running = true
+            _G.AutoChestData.originalCFrame = humanoidRootPart.CFrame
+            task.spawn(function()
+                while _G.AutoChestData.running do
+                    local chests = getChests()
+                    for _, chest in ipairs(chests) do
+                        if not _G.AutoChestData.running then break end
+                        local part = chest.PrimaryPart or chest:FindFirstChildWhichIsA("BasePart")
+                        if part then
+                            humanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 6, 0)
+                            local prompts = getPrompt(chest)
+                            for _, prompt in ipairs(prompts) do
+                                fireproximityprompt(prompt, math.huge)
+                            end
+                            local t = tick()
+                            while _G.AutoChestData.running and tick() - t < 4 do task.wait() end
+                        end
+                    end
+                    task.wait(0.1)
+                end
+            end)
+        else
+            _G.AutoChestData.running = false
+            if _G.AutoChestData.originalCFrame then
+                humanoidRootPart.CFrame = _G.AutoChestData.originalCFrame
+            end
+        end
+    end
+})
+local chestRange = 50
+
 
 Tabs.br:Section({ Title = "Junk", Icon = "box" })
 

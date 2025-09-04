@@ -493,10 +493,10 @@ local function MobileFly()
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "99 Night in Forest | by: @codexxscripts ",
+    Title = "by: @Codexxscripts (Only Telegram)",
     Icon = "",
     IconThemed = true,
-    Author = "CODEX",
+    Author = "99 Night in the Forest",
     Folder = "codexxscripts",
     Size = UDim2.fromOffset(500, 350),
     Transparent = true,
@@ -551,7 +551,7 @@ Tabs.info = Window:Tab({
 
 Window:SelectTab(1)
 
-
+Tabs.Combat:Section({ Title = "Damage aura", Icon = "skull" })
 Tabs.Combat:Toggle({
     Title = "Kill Aura",
     Value = false,
@@ -780,8 +780,6 @@ local Players = game:GetService("Players")
 local chestRange = 50
 
 
-Tabs.br:Section({ Title = "Junk", Icon = "box" })
-
 Tabs.br:Dropdown({
     Title = "Select Junk Items",
     Desc = "Choose items to bring",
@@ -810,8 +808,6 @@ Tabs.br:Button({
         end
     end
 })
-
-Tabs.br:Section({ Title = "Fuel", Icon = "flame" })
 
 local fuelItems = {"Log", "Chair", "Coal", "Fuel Canister", "Oil Barrel"}
 local selectedFuelItems = {}
@@ -847,7 +843,6 @@ Tabs.br:Button({
     end
 })
 
-Tabs.br:Section({ Title = "Food", Icon = "utensils" })
 
 local foodItems = {"Cake", "Cooked Steak", "Cooked Morsel", "Steak", "Morsel", "Berry", "Carrot"}
 local selectedFoodItems = {}
@@ -881,8 +876,6 @@ Tabs.br:Button({
     end
 })
 
-Tabs.br:Section({ Title = "Medicine", Icon = "bandage" })
-
 Tabs.br:Dropdown({
     Title = "Select Medical Items",
     Desc = "Choose items to bring",
@@ -911,8 +904,6 @@ Tabs.br:Button({
         end
     end
 })
-
-Tabs.br:Section({ Title = "Equipment", Icon = "sword" })
 
 local equipmentItems = {"Revolver", "Rifle", "Leather Body", "Iron Body", "Revolver Ammo", "Rifle Ammo", "Giant Sack", "Good Sack", "Strong Axe", "Good Axe"}
 local selectedEquipmentItems = {}
@@ -946,7 +937,6 @@ Tabs.br:Button({
     end
 })
 
-Tabs.Fly:Section({ Title = "Main", Icon = "eye" })
 
 Tabs.Fly:Slider({
     Title = "Fly Speed",
@@ -1145,7 +1135,6 @@ local espItemsEnabled = false
 local espMobsEnabled = false
 local espConnections = {}
 
-Tabs.esp:Section({ Title = "Esp Items", Icon = "package" })
 
 Tabs.esp:Dropdown({
     Title = "Esp Items",
@@ -1207,8 +1196,6 @@ Tabs.esp:Toggle({
     end
 })
 
-Tabs.esp:Section({ Title = "Esp Entity", Icon = "user" })
-
 Tabs.esp:Dropdown({
     Title = "Esp Entity",
     Values = me,
@@ -1268,8 +1255,6 @@ Tabs.esp:Toggle({
         end
     end
 })
-
-Tabs.Main:Section({ Title = "Misc", Icon = "settings" })
 
 local instantInteractEnabled = false
 local instantInteractConnection
@@ -1339,3 +1324,5 @@ Tabs.Main:Toggle({
         end
     end
 })
+
+Tabs.info:Section({ Title = "Misc", Icon = "settings" })

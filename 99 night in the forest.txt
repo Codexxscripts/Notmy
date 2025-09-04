@@ -553,26 +553,29 @@ Window:SelectTab(1)
 
 Tabs.Information:Section({ Title = "Misc", Icon = "settings" })
 
-Information:Paragraph({
-      Title = "Join our Telegram Channel!",
-     Desc = "Why waiting? join now!",
+local InformationSection = Window:Section({ Title = "WindUI " .. WindUI.Version })
+TabHandles.Information:Paragraph({
+    Title = "My Telegram Channel!",
+    Desc = "credit: @RzB1536, @mewxue",
+    Image = "telegram",
+    ImageSize = 20,
+    Color = "Blue",
     Buttons = {
         {
             Title = "Copy Link",
-            Variant = "Primary",
             Icon = "copy",
+            Variant = "Tertiary",
             Callback = function()
                 setclipboard("t.me/codexxscripts")
                 WindUI:Notify({
                     Title = "Copied!",
-                    Content = "link copied to clipboard.",
+                    Content = "Telegram link copied to clipboard",
                     Duration = 2
                 })
             end
         }
     }
 })
-
 Tabs.Combat:Section({ Title = "Damage aura", Icon = "skull" })
 Tabs.Combat:Toggle({
     Title = "Kill Aura",

@@ -551,6 +551,28 @@ Tabs.Information = Window:Tab({
 
 Window:SelectTab(1)
 
+Tabs.Information:Section({ Title = "Misc", Icon = "settings" })
+
+Information:Paragraph({
+      Title = "Join our Telegram Channel!",
+     Desc = "Why waiting? join now!",
+    Buttons = {
+        {
+            Title = "Copy Link",
+            Variant = "Primary",
+            Icon = "copy",
+            Callback = function()
+                setclipboard("t.me/codexxscripts")
+                WindUI:Notify({
+                    Title = "Copied!",
+                    Content = "link copied to clipboard.",
+                    Duration = 2
+                })
+            end
+        }
+    }
+})
+
 Tabs.Combat:Section({ Title = "Damage aura", Icon = "skull" })
 Tabs.Combat:Toggle({
     Title = "Kill Aura",
@@ -1325,24 +1347,4 @@ Tabs.Main:Toggle({
     end
 })
 
-Tabs.Information:Section({ Title = "Misc", Icon = "settings" })
 
-Information:Paragraph({
-      Title = "Join our Telegram Channel!",
-     Desc = "Why waiting? join now!",
-    Buttons = {
-        {
-            Title = "Copy Link",
-            Variant = "Primary",
-            Icon = "copy",
-            Callback = function()
-                setclipboard("t.me/codexxscripts")
-                WindUI:Notify({
-                    Title = "Copied!",
-                    Content = "link copied to clipboard.",
-                    Duration = 2
-                })
-            end
-        }
-    }
-})

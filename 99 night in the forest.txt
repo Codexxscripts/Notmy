@@ -506,7 +506,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "Open Hub",
+    Title = "Hello World!",
     Icon = "rbxassetid://107166153825283",
     CornerRadius = UDim.new(0, 6),
     StrokeThickness = 2,

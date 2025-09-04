@@ -493,7 +493,7 @@ local function MobileFly()
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "credit: @Codexxscripts",
+    Title = "Credit: @Codexxscripts",
     Icon = "rbxassetid://107166153825283",
     IconThemed = true,
     Author = "99 Night in the Forest",

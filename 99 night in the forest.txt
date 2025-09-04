@@ -543,9 +543,9 @@ Tabs.Fly = Window:Tab({
     Desc = ""
 })
 
-Tabs.info = Window:Tab({
+Tabs.Information = Window:Tab({
     Title = "Information",
-    Icon = "layout-grid",
+    Icon = "newspaper",
     Desc = ""
 })
 
@@ -1325,4 +1325,24 @@ Tabs.Main:Toggle({
     end
 })
 
-Tabs.info:Section({ Title = "Misc", Icon = "settings" })
+Tabs.Information:Section({ Title = "Misc", Icon = "settings" })
+
+Information:Paragraph({
+      Title = "Join our Telegram Channel!",
+     Desc = "Why waiting? join now!",
+    Buttons = {
+        {
+            Title = "Copy Link",
+            Variant = "Primary",
+            Icon = "copy",
+            Callback = function()
+                setclipboard("t.me/codexxscripts")
+                WindUI:Notify({
+                    Title = "Copied!",
+                    Content = "link copied to clipboard.",
+                    Duration = 2
+                })
+            end
+        }
+    }
+})

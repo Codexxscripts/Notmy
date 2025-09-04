@@ -494,7 +494,7 @@ end
 
 local Window = WindUI:CreateWindow({
     Title = "by: @Codexxscripts (Only Telegram)",
-    Icon = "rbxassetid://101350417686798",
+    Icon = "rbxassetid://107166153825283",
     IconThemed = true,
     Author = "99 Night in the Forest",
     Folder = "codexxscripts",
@@ -507,7 +507,7 @@ local Window = WindUI:CreateWindow({
 
 Window:EditOpenButton({
     Title = "Open Hub",
-    Icon = "rbxassetid://101350417686798",
+    Icon = "rbxassetid://107166153825283",
     CornerRadius = UDim.new(0, 6),
     StrokeThickness = 2,
     Color = ColorSequence.new(Color3.fromRGB(30, 30, 30), Color3.fromRGB(255, 255, 255)),

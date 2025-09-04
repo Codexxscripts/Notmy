@@ -543,7 +543,15 @@ Tabs.Fly = Window:Tab({
     Desc = "Stellar"
 })
 
+Tabs.Chest = Window:Tab({
+    Title = "Auto Chest",
+    Icon = "layout-grid",
+    Desc = "Stellar"
+})
+
 Window:SelectTab(1)
+
+
 
 Tabs.Combat:Section({ Title = "Aura", Icon = "star" })
 

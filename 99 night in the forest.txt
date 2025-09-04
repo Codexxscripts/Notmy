@@ -493,11 +493,11 @@ local function MobileFly()
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "99 Night in Forest | Stellar",
-    Icon = "star",
+    Title = "99 Night in Forest | by: @codexxscripts ",
+    Icon = "",
     IconThemed = true,
-    Author = "STELLAR",
-    Folder = "stellar",
+    Author = "CODEX",
+    Folder = "codexxscripts",
     Size = UDim2.fromOffset(500, 350),
     Transparent = true,
     Theme = "Dark",
@@ -506,7 +506,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "Open 99 Night in Forest",
+    Title = "t.me/codexxscripts",
     Icon = "monitor",
     CornerRadius = UDim.new(0, 6),
     StrokeThickness = 2,
@@ -552,9 +552,6 @@ Tabs.info = Window:Tab({
 Window:SelectTab(1)
 
 
-
-Tabs.Combat:Section({ Title = "Aura", Icon = "star" })
-
 Tabs.Combat:Toggle({
     Title = "Kill Aura",
     Value = false,
@@ -583,7 +580,7 @@ Tabs.Combat:Toggle({
     end
 })
 
-Tabs.Combat:Section({ Title = "Settings", Icon = "settings" })
+
 
 Tabs.Combat:Slider({
     Title = "Aura Radius",
